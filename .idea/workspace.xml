@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd43ae13-83f5-4fd2-8a9a-7407f9792dbc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JARS/c3p0-0.9.5.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JARS/jcalendar-1.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JARS/mchange-commons-java-0.2.16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JARS/mysql-connector-j-8.0.32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/Busqueda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/Exito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/MenuPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/MenuUsuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/RegistroHuesped.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/views/ReservasView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/Ha-100px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/aH-150px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/aH-40px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/busqueda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/calendario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/cancelar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/cerrar-24px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/cerrar-sesion 32-px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/deletar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/disquete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/editar-texto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/hotel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/icon-buscar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/icon-reservas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/img-hotel-login-.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/lOGO-50PX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/login2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/lupa-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/lupa2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/menu-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/papelera-de-reciclaje.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/perfil-del-usuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/persona.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/pessoas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/registro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/reservado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/reservas-img-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/reservas.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2U8bd5mjDO7qBpqIktF8a6uJbHi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Usuario/OneDrive/Documents/Alura Latam/JDBC/hotel",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Usuario/OneDrive/Documents/Alura Latam/JDBC/hotel/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\OneDrive\Documents\Alura Latam\JDBC\hotel\src\main\java" />
+      <recent name="C:\Users\Usuario\OneDrive\Documents\Alura Latam\JDBC\hotel" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MenuPrincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.views.MenuPrincipal" />
+      <module name="hotel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MenuPrincipal" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd43ae13-83f5-4fd2-8a9a-7407f9792dbc" name="Changes" comment="" />
+      <created>1692324240592</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692324240592</updated>
+      <workItem from="1692324241702" duration="1032000" />
+      <workItem from="1692325282041" duration="422000" />
+      <workItem from="1692405866545" duration="2419000" />
+      <workItem from="1692453000403" duration="955000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
