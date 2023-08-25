@@ -323,4 +323,6 @@ public class ReservasView extends JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }
+
+
 }

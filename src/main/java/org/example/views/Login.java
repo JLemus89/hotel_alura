@@ -1,22 +1,22 @@
 package org.example.views;
 
+import com.sun.jdi.Value;
+import org.example.dao.UsuarioDAO;
+import org.example.factory.ConnectionFactory;
+
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.JSeparator;
 import java.awt.SystemColor;
 import java.awt.Font;
-import javax.swing.JPasswordField;
-import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Login extends JFrame {
 
@@ -29,6 +29,8 @@ public class Login extends JFrame {
     private JPasswordField txtContrasena;
     int xMouse, yMouse;
     private JLabel labelExit;
+
+    private Connection con;
 
     /**
      * Launch the application.
@@ -234,20 +236,61 @@ public class Login extends JFrame {
         header.setLayout(null);
     }
 
+
     private void Login() {
-        String Usuario= "admin";
-        String Contraseña="admin";
 
-        String contrase=new String (txtContrasena.getPassword());
+        var factory = new ConnectionFactory();
+        this.con = factory.recuperaConexion();
 
-        if(txtUsuario.getText().equals(Usuario) && contrase.equals(Contraseña)){
-            MenuUsuario menu = new MenuUsuario();
-            menu.setVisible(true);
-            dispose();
-        }else {
-            JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
+        try {
+            String Usuario= getTxtUsuario();
+            String Contraseña= String.valueOf(getTxtContrasena());
+            final PreparedStatement statement = con.prepareStatement(
+                    "SELECT * FROM USUARIOS WHERE USUARIO = ? AND CONTRASENA = ?");
+
+            try (statement) {
+                statement.setString(1, Usuario);
+                statement.setString(2, Contraseña);
+                final ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    MenuUsuario menu = new MenuUsuario();
+                    menu.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Usuario o contraseña incorrectos",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error al validar usuario",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            throw new RuntimeException(e);
         }
     }
+
+    public String getTxtUsuario() {
+        return txtUsuario.getText();
+    }
+
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+
+    public String getTxtContrasena() {
+        return new String(txtContrasena.getPassword());
+    }
+
+    public void setTxtContrasena(JPasswordField txtContrasena) {
+        this.txtContrasena = txtContrasena;
+    }
+
     private void headerMousePressed(java.awt.event.MouseEvent evt) {
         xMouse = evt.getX();
         yMouse = evt.getY();
