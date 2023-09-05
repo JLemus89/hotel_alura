@@ -135,7 +135,7 @@ public class MenuUsuario extends JFrame {
         panelMenu.add(btnBusqueda);
         btnBusqueda.setLayout(null);
 
-        JLabel lblBusquedaDeReservas = new JLabel("Búsqueda");
+        JLabel lblBusquedaDeReservas = new JLabel("Gestionar");
         lblBusquedaDeReservas.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/pessoas.png")));
         lblBusquedaDeReservas.setBounds(27, 11, 200, 34);
         lblBusquedaDeReservas.setHorizontalAlignment(SwingConstants.LEFT);
@@ -168,6 +168,16 @@ public class MenuUsuario extends JFrame {
                 labelExit.setForeground(Color.black);
             }
         });
+
+        JSeparator separator2 = new JSeparator();
+        separator2.setBounds(26, 219, 201, 2);
+        panelMenu.add(separator2);
+        header.setLayout(null);
+        header.setBackground(Color.WHITE);
+        header.setBounds(0, 0, 944, 36);
+        contentPane.add(header);
+
+
 
         btnexit.setLayout(null);
         btnexit.setBackground(Color.WHITE);

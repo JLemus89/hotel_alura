@@ -2,22 +2,18 @@ package org.example.views;
 
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Panel;
 import java.awt.Color;
 import java.awt.SystemColor;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Toolkit;
-import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-@SuppressWarnings("serial")
+
 public class MenuPrincipal extends JFrame {
 
     private JPanel contentPane;
@@ -78,7 +74,7 @@ public class MenuPrincipal extends JFrame {
         panel.add(panel_1);
         panel_1.setLayout(null);
 
-        JLabel lblCopyR = new JLabel("Desarrollado por Fulanita de Tal © 2023");
+        JLabel lblCopyR = new JLabel("Desarrollado por John Lemus © 2023");
         lblCopyR.setBounds(315, 11, 284, 19);
         lblCopyR.setForeground(new Color(240, 248, 255));
         lblCopyR.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -109,7 +105,10 @@ public class MenuPrincipal extends JFrame {
         btnexit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.exit(0);
+                int option = JOptionPane.showConfirmDialog(null, "¿Desea salir del programa?", "Salir", JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
             }
             @Override
             public void mouseEntered(MouseEvent e) {
