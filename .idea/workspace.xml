@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd43ae13-83f5-4fd2-8a9a-7407f9792dbc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/HuespedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ReservaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/HuespedDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ReservaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UsuarioDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/ConnectionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/modelo/Huesped.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/modelo/Reserva.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/modelo/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/grupo-de-usuarios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/usuarios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/usuarios2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/views/Busqueda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/views/Busqueda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/views/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/views/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/views/MenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/views/MenuUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/views/MenuUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/views/RegistroHuesped.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/views/RegistroHuesped.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/views/ReservasView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/views/ReservasView.java" afterDir="false" />
-    </list>
+    <list default="true" id="bd43ae13-83f5-4fd2-8a9a-7407f9792dbc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +161,7 @@
       <workItem from="1693512079491" duration="753000" />
       <workItem from="1693874135686" duration="545000" />
       <workItem from="1693875508566" duration="8971000" />
-      <workItem from="1693921093959" duration="26061000" />
+      <workItem from="1693921093959" duration="26418000" />
     </task>
     <servers />
   </component>
