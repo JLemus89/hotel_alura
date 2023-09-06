@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd43ae13-83f5-4fd2-8a9a-7407f9792dbc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/factory/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/factory/ConnectionFactory.java" afterDir="false" />
     </list>
@@ -28,12 +29,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "JLemus89"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JLemus89&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -61,7 +62,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Usuario/OneDrive/Documents/Alura Latam/JDBC/hotel_alura",
+    "last_opened_file_path": "C:/Users/johnl.LAPTOP-LHS1I7MQ/OneDrive/Documents/Alura Latam/JDBC/hotel/JARS/mysql-connector-j-8.0.32.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -156,9 +157,9 @@
       <list>
         <item itemvalue="Application.ReservasView" />
         <item itemvalue="Application.MenuUsuario" />
+        <item itemvalue="Application.Busqueda" />
         <item itemvalue="Application.MenuPrincipal" />
         <item itemvalue="Application.ConnectionFactory" />
-        <item itemvalue="Application.Busqueda" />
       </list>
     </recent_temporary>
   </component>
@@ -184,6 +185,7 @@
       <workItem from="1693874135686" duration="545000" />
       <workItem from="1693875508566" duration="8971000" />
       <workItem from="1693921093959" duration="26418000" />
+      <workItem from="1693957396583" duration="1770000" />
     </task>
     <servers />
   </component>
