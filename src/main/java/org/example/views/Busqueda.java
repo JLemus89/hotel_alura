@@ -304,10 +304,6 @@ public class Busqueda extends JFrame {
         return this.reservaController.listar();
     }
 
-    private List<Reserva> listarReservaById(Integer idReserva){
-        return this.reservaController.listar(idReserva);
-    }
-
     private List<Huesped> listarHuesped(){
         return this.huespedController.listar();
     }
