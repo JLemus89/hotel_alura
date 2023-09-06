@@ -135,7 +135,7 @@ public class MenuUsuario extends JFrame {
         panelMenu.add(btnBusqueda);
         btnBusqueda.setLayout(null);
 
-        JLabel lblBusquedaDeReservas = new JLabel("Búsqueda");
+        JLabel lblBusquedaDeReservas = new JLabel("Gestionar");
         lblBusquedaDeReservas.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/pessoas.png")));
         lblBusquedaDeReservas.setBounds(27, 11, 200, 34);
         lblBusquedaDeReservas.setHorizontalAlignment(SwingConstants.LEFT);
@@ -168,37 +168,6 @@ public class MenuUsuario extends JFrame {
                 labelExit.setForeground(Color.black);
             }
         });
-
-        JPanel btnUsuarios = new JPanel();
-        btnUsuarios.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                btnUsuarios.setBackground(new Color(118, 187, 223));
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                btnUsuarios.setBackground(new Color(12, 138, 199));
-            }
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Busqueda busqueda = new Busqueda();
-                busqueda.setVisible(true);
-                dispose();
-            }
-        });
-
-        btnUsuarios.setBounds(0, 369, 257, 56);
-        btnUsuarios.setBackground(new Color(12, 138, 199));
-        panelMenu.add(btnUsuarios);
-        btnUsuarios.setLayout(null);
-
-        JLabel lblBusquedaDeUsuarios = new JLabel("Usuarios");
-        lblBusquedaDeUsuarios.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/grupo-de-usuarios.png")));
-        lblBusquedaDeUsuarios.setBounds(27, 20, 200, 34);
-        lblBusquedaDeUsuarios.setHorizontalAlignment(SwingConstants.LEFT);
-        lblBusquedaDeUsuarios.setForeground(Color.WHITE);
-        lblBusquedaDeUsuarios.setFont(new Font("Roboto", Font.PLAIN, 18));
-        btnUsuarios.add(lblBusquedaDeUsuarios);
 
         JSeparator separator2 = new JSeparator();
         separator2.setBounds(26, 219, 201, 2);

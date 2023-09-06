@@ -31,10 +31,10 @@ public class ReservaDAO {
                     while (resultSet.next()) {
                         var reserva = new Reserva(
                                 resultSet.getInt("ID"),
-                                resultSet.getDate("FECHAENTRADA"),
+                                resultSet.getDate("FECHAINGRESO"),
                                 resultSet.getDate("FECHASALIDA"),
                                 resultSet.getInt("VALOR"),
-                                resultSet.getString("FORMAPAGO")
+                                resultSet.getString("FORMADEPAGO")
                         );
                         resultado.add(reserva);
                     }
@@ -65,10 +65,10 @@ public class ReservaDAO {
                     while (resultSet.next()) {
                         var reserva = new Reserva(
                                 resultSet.getInt("ID"),
-                                resultSet.getDate("FECHAENTRADA"),
+                                resultSet.getDate("FECHAINGRESO"),
                                 resultSet.getDate("FECHASALIDA"),
                                 resultSet.getInt("VALOR"),
-                                resultSet.getString("FORMAPAGO")
+                                resultSet.getString("FORMADEPAGO")
                         );
                         resultado.add(reserva);
                     }
@@ -126,9 +126,10 @@ public class ReservaDAO {
     }
 
     public void guardar(Reserva reserva) {
+        String sql = "INSERT INTO RESERVAS (FECHAINGRESO, FECHASALIDA, VALOR, FORMADEPAGO) VALUES (?, ?, ?, ?)";
         try {
-            final PreparedStatement statement = con.prepareStatement(
-                    "INSERT INTO RESERVAS (FECHAENTRADA, FECHASALIDA, VALOR, FORMAPAGO) VALUES (?, ?, ?, ?)");
+            final PreparedStatement statement = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+
 
             try (statement) {
                 statement.setDate(1, (java.sql.Date) reserva.getFechaentrada());
@@ -136,6 +137,17 @@ public class ReservaDAO {
                 statement.setInt(3, reserva.getValor());
                 statement.setString(4, reserva.getFormapago());
                 statement.execute();
+
+                try (var generatedKeys = statement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        long idGenerado = generatedKeys.getLong(1);
+                        // Asignar el ID generado a la reserva
+                        reserva.setId((int) idGenerado);
+                    } else {
+                        throw new SQLException("No se ha generado ningún ID para la reserva.");
+                    }
+                }
+
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(

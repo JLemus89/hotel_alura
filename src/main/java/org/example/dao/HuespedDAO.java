@@ -30,14 +30,13 @@ public class HuespedDAO {
                 try (resultSet) {
                     while (resultSet.next()) {
                         var huesped = new Huesped(
-                                resultSet.getInt("CC"),
+                                resultSet.getInt("ID"),
                                 resultSet.getString("NOMBRE"),
                                 resultSet.getString("APELLIDO"),
-                                resultSet.getDate("FECHANACIMIENTO"),
+                                resultSet.getDate("FECHADENACIMIENTO"),
                                 resultSet.getString("NACIONALIDAD"),
-                                resultSet.getInt("TELEFONO"),
+                                resultSet.getString("TELEFONO"),
                                 resultSet.getInt("IDRESERVA")
-
                         );
                         resultado.add(huesped);
                     }
@@ -54,25 +53,25 @@ public class HuespedDAO {
         return resultado;
     }
 
-    public List<Huesped> listar(Integer cc) {
+    public List<Huesped> listar(Integer id) {
         List<Huesped> resultado = new ArrayList<>();
 
         try {
             final PreparedStatement statement = con
-                    .prepareStatement("SELECT * FROM HUESPEDES WHERE CC = ?");
+                    .prepareStatement("SELECT * FROM HUESPEDES WHERE ID = ?");
             try (statement) {
-                statement.setInt(1, cc);
+                statement.setInt(1, id);
                 final ResultSet resultSet = statement.executeQuery();
 
                 try (resultSet) {
                     while (resultSet.next()) {
                         var huesped = new Huesped(
-                                resultSet.getInt("CC"),
+                                resultSet.getInt("ID"),
                                 resultSet.getString("NOMBRE"),
                                 resultSet.getString("APELLIDO"),
-                                resultSet.getDate("FECHANACIMIENTO"),
+                                resultSet.getDate("FECHADENACIMIENTO"),
                                 resultSet.getString("NACIONALIDAD"),
-                                resultSet.getInt("TELEFONO"),
+                                resultSet.getString("TELEFONO"),
                                 resultSet.getInt("IDRESERVA")
 
                         );
@@ -91,12 +90,12 @@ public class HuespedDAO {
         return resultado;
     }
 
-    public int eliminar(Integer cc) {
+    public int eliminar(Integer id, Integer idReserva) {
         try {
-            final PreparedStatement statement = con.prepareStatement("DELETE FROM HUESPEDES WHERE CC = ?");
+            final PreparedStatement statement = con.prepareStatement("DELETE FROM HUESPEDES WHERE ID = ?");
 
             try (statement) {
-                statement.setInt(1, cc);
+                statement.setInt(1, id);
                 return statement.executeUpdate();
             }
         } catch (SQLException e) {
@@ -109,9 +108,9 @@ public class HuespedDAO {
         }
     }
 
-    public int modificar(Integer cc, String nombre, String apellido, Date fechanacimiento, String nacionalidad, Integer telefono, Integer idReserva) {
+    public int modificar(String nombre, String apellido, Date fechanacimiento, String nacionalidad, Integer telefono) {
         try {
-            final PreparedStatement statement = con.prepareStatement("UPDATE HUESPEDES SET NOMBRE = ?, APELLIDO = ?, FECHANACIMIENTO = ?, NACIONALIDAD = ?, TELEFONO = ?, IDRESERVA = ? WHERE CC = ?");
+            final PreparedStatement statement = con.prepareStatement("UPDATE HUESPEDES SET NOMBRE = ?, APELLIDO = ?, FECHANACIMIENTO = ?, NACIONALIDAD = ?, TELEFONO = ?, IDRESERVA = ? WHERE ID = ?");
 
             try (statement) {
                 statement.setString(1, nombre);
@@ -119,8 +118,6 @@ public class HuespedDAO {
                 statement.setDate(3, (java.sql.Date) fechanacimiento);
                 statement.setString(4, nacionalidad);
                 statement.setInt(5, telefono);
-                statement.setInt(6, idReserva);
-                statement.setInt(7, cc);
                 return statement.executeUpdate();
             }
         } catch (SQLException e) {
@@ -134,19 +131,29 @@ public class HuespedDAO {
     }
 
     public void guardar(Huesped huesped) {
+        String sql = "INSERT INTO HUESPEDES (NOMBRE, APELLIDO, FECHADENACIMIENTO, NACIONALIDAD, TELEFONO, IDRESERVA) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             final PreparedStatement statement = con.prepareStatement(
-                    "INSERT INTO HUESPEDES (CC, NOMBRE, APELLIDO, FECHANACIMIENTO, NACIONALIDAD, TELEFONO, IDRESERVA) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    sql,
+                    PreparedStatement.RETURN_GENERATED_KEYS);
 
             try (statement) {
-                statement.setInt(1, huesped.getCc());
-                statement.setString(2, huesped.getNombre());
-                statement.setString(3, huesped.getApellido());
-                statement.setDate(4, (java.sql.Date) huesped.getFechanacimiento());
-                statement.setString(5, huesped.getNacionalidad());
-                statement.setInt(6, huesped.getTelefono());
-                statement.setInt(7, huesped.getIdReserva());
+                statement.setString(1, huesped.getNombre());
+                statement.setString(2, huesped.getApellido());
+                statement.setDate(3, new java.sql.Date(huesped.getFechanacimiento().getTime()));
+                statement.setString(4, huesped.getNacionalidad());
+                statement.setString(5, huesped.getTelefono());
+                statement.setInt(6, huesped.getIdReserva());
                 statement.execute();
+
+                try (var generatedKeys = statement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        huesped.setId(generatedKeys.getInt(1));
+                    } else {
+                        throw new SQLException(
+                                "Fallo al obtener el id de huesped");
+                    }
+                }
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(

@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReservaController {
-    private ReservaDAO reservaDAO;
+    private final ReservaDAO reservaDAO;
 
    public ReservaController() {
             var factory = new ConnectionFactory();
@@ -19,20 +19,20 @@ public class ReservaController {
             return reservaDAO.listar();
         }
 
-        public List<Reserva> listar(Integer id) {
-            return reservaDAO.listar(id);
+        public List<Reserva> listar(Integer idReserva) {
+            return this.reservaDAO.listar(idReserva);
         }
 
         public int eliminar(Integer id) {
-            return reservaDAO.eliminar(id);
+            return this.reservaDAO.eliminar(id);
         }
 
         public int modificar(Integer id, Date fechaentrada, Date fechasalida, Integer valor, String formapago) {
-            return reservaDAO.modificar(id, fechaentrada, fechasalida, valor, formapago);
+            return this.reservaDAO.modificar(id, fechaentrada, fechasalida, valor, formapago);
         }
 
         public void guardar(Reserva reserva) {
-            reservaDAO.guardar(reserva);
+            this.reservaDAO.guardar(reserva);
         }
 
 }

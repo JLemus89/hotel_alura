@@ -1,25 +1,22 @@
 package org.example.views;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
 import java.awt.Color;
 import com.toedter.calendar.JDateChooser;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JLabel;
+import org.example.controller.HuespedController;
+import org.example.controller.ReservaController;
+import org.example.modelo.Huesped;
+
 import java.awt.Font;
-import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.text.Format;
 import java.awt.Toolkit;
-import javax.swing.SwingConstants;
-import javax.swing.JSeparator;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class RegistroHuesped extends JFrame {
@@ -34,6 +31,8 @@ public class RegistroHuesped extends JFrame {
     private JLabel labelExit;
     private JLabel labelAtras;
     int xMouse, yMouse;
+    private HuespedController huespedController;
+    private ReservaController reservaController;
 
     /**
      * Launch the application.
@@ -42,7 +41,7 @@ public class RegistroHuesped extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    RegistroHuesped frame = new RegistroHuesped();
+                    RegistroHuesped frame = new RegistroHuesped(0);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -54,7 +53,10 @@ public class RegistroHuesped extends JFrame {
     /**
      * Create the frame.
      */
-    public RegistroHuesped() {
+    public RegistroHuesped(int idReserva) {
+        this.huespedController = new HuespedController();
+        this.reservaController = new ReservaController();
+
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(RegistroHuesped.class.getResource("/imagenes/lOGO-50PX.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -206,6 +208,8 @@ public class RegistroHuesped extends JFrame {
         txtNreserva.setColumns(10);
         txtNreserva.setBackground(Color.WHITE);
         txtNreserva.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        String id = String.valueOf(idReserva);
+        txtNreserva.setText(id);
         contentPane.add(txtNreserva);
 
         JSeparator separator_1_2 = new JSeparator();
@@ -249,6 +253,14 @@ public class RegistroHuesped extends JFrame {
         btnguardar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() || txtFechaN.getDate().toString().isEmpty() || txtTelefono.getText().isEmpty() || txtNreserva.getText().isEmpty()) {
+                    javax.swing.JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+                } else {
+                    guardarHuesped();
+                    ReservasView reservas = new ReservasView();
+                    reservas.setVisible(true);
+                    dispose();
+                }
             }
         });
         btnguardar.setLayout(null);
@@ -262,6 +274,7 @@ public class RegistroHuesped extends JFrame {
         labelGuardar.setFont(new Font("Roboto", Font.PLAIN, 18));
         labelGuardar.setBounds(0, 0, 122, 35);
         btnguardar.add(labelGuardar);
+
 
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 489, 634);
@@ -323,5 +336,18 @@ public class RegistroHuesped extends JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }
+
+    public void guardarHuesped() {
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        Date fechanacimiento = txtFechaN.getDate();
+        String nacionalidad = txtNacionalidad.getSelectedItem().toString();
+        String telefono = txtTelefono.getText();
+        Integer idReserva = Integer.parseInt(txtNreserva.getText());
+        Huesped huesped = new Huesped(nombre, apellido, fechanacimiento, nacionalidad, telefono);
+        huespedController.guardar(huesped, idReserva);
+        JOptionPane.showMessageDialog(null, "Huesped registrado correctamente. Recuerda tu número de reserva: " + idReserva);
+    }
+
 
 }

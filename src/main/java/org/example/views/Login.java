@@ -28,7 +28,7 @@ public class Login extends JFrame {
     private JTextField txtUsuario;
     private JPasswordField txtContrasena;
     int xMouse, yMouse;
-    private JLabel labelExit;
+    private final JLabel labelExit;
 
     private Connection con;
 
@@ -54,7 +54,7 @@ public class Login extends JFrame {
     public Login() {
         setResizable(false);
         setUndecorated(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setBounds(100, 100, 788, 527);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,7 +86,10 @@ public class Login extends JFrame {
         btnexit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.exit(0);
+                int option = JOptionPane.showConfirmDialog(null, "¿Desea salir del programa?", "Salir", JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -109,6 +112,7 @@ public class Login extends JFrame {
         labelExit.setForeground(SystemColor.text);
         labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
         labelExit.setHorizontalAlignment(SwingConstants.CENTER);
+
 
         txtUsuario = new JTextField();
         txtUsuario.addMouseListener(new MouseAdapter() {
@@ -139,7 +143,7 @@ public class Login extends JFrame {
 
         JLabel labelTitulo = new JLabel("INICIAR SESIÓN");
         labelTitulo.setForeground(SystemColor.textHighlight);
-        labelTitulo.setFont(new Font("Roboto Black", Font.PLAIN, 26));
+        labelTitulo.setFont(new Font("Roboto Black", Font.PLAIN, 24));
         labelTitulo.setBounds(65, 149, 202, 26);
         panel.add(labelTitulo);
 
@@ -301,4 +305,7 @@ public class Login extends JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }
+
+
+
 }

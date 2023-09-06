@@ -3,16 +3,16 @@ package org.example.modelo;
 import java.util.Date;
 
 public class Huesped {
-    private Integer cc;
+    private Integer id;
     private String nombre;
     private String apellido;
     private Date fechanacimiento;
     private String nacionalidad;
-    private Integer telefono;
+    private String telefono;
     private Integer idReserva;
 
-    public Huesped(Integer cc, String nombre, String apellido, Date fechaNacimiento, String nacionalidad, Integer telefono, Integer idReserva) {
-        this.cc = cc;
+    public Huesped(Integer id, String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String telefono, Integer idReserva) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechanacimiento = fechaNacimiento;
@@ -21,12 +21,20 @@ public class Huesped {
         this.idReserva = idReserva;
     }
 
-    public Integer getCc() {
-        return cc;
+    public Huesped(String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechanacimiento = fechaNacimiento;
+        this.nacionalidad = nacionalidad;
+        this.telefono = telefono;
     }
 
-    public void setCc(Integer cc) {
-        this.cc = cc;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -61,11 +69,11 @@ public class Huesped {
         this.nacionalidad = nacionalidad;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

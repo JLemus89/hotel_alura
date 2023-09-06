@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class UsuarioController implements ActionListener {
-    private UsuarioDAO usuarioDAO;
+    private final UsuarioDAO usuarioDAO;
     private Login login;
 
     @Override
@@ -40,8 +40,8 @@ public class UsuarioController implements ActionListener {
         return usuarioDAO.listar(usr);
     }
 
-    public int eliminar(Integer usr) {
-        return usuarioDAO.eliminar(usr);
+    public int eliminar(Integer id) {
+        return usuarioDAO.eliminar(id);
     }
 
     public int modificar(String nombre, String apellido, String usuario, String contrasena, Integer id) {

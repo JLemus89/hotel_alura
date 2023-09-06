@@ -1,5 +1,12 @@
 package org.example.views;
 
+import org.example.controller.HuespedController;
+import org.example.controller.ReservaController;
+import org.example.controller.UsuarioController;
+import org.example.modelo.Huesped;
+import org.example.modelo.Reserva;
+import org.example.modelo.Usuario;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,6 +27,7 @@ import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.List;
 
 @SuppressWarnings("serial")
 public class Busqueda extends JFrame {
@@ -28,11 +36,16 @@ public class Busqueda extends JFrame {
     private JTextField txtBuscar;
     private JTable tbHuespedes;
     private JTable tbReservas;
+    private JTable tbUsuarios;
     private DefaultTableModel modelo;
     private DefaultTableModel modeloHuesped;
+    private DefaultTableModel modeloUsuario;
     private JLabel labelAtras;
     private JLabel labelExit;
     int xMouse, yMouse;
+    private ReservaController reservaController;
+    private HuespedController huespedController;
+    private UsuarioController usuarioController;
 
     /**
      * Launch the application.
@@ -54,6 +67,10 @@ public class Busqueda extends JFrame {
      * Create the frame.
      */
     public Busqueda() {
+        this.reservaController = new ReservaController();
+        this.huespedController = new HuespedController();
+        this.usuarioController = new UsuarioController();
+
         setIconImage(Toolkit.getDefaultToolkit().getImage(Busqueda.class.getResource("/imagenes/lupa2.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 910, 571);
@@ -85,8 +102,6 @@ public class Busqueda extends JFrame {
         contentPane.add(panel);
 
 
-
-
         tbReservas = new JTable();
         tbReservas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tbReservas.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -105,7 +120,7 @@ public class Busqueda extends JFrame {
         tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tbHuespedes.setFont(new Font("Roboto", Font.PLAIN, 16));
         modeloHuesped = (DefaultTableModel) tbHuespedes.getModel();
-        modeloHuesped.addColumn("Número de Huesped");
+        modeloHuesped.addColumn("Id de Huesped");
         modeloHuesped.addColumn("Nombre");
         modeloHuesped.addColumn("Apellido");
         modeloHuesped.addColumn("Fecha de Nacimiento");
@@ -115,6 +130,19 @@ public class Busqueda extends JFrame {
         JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
         panel.addTab("Huéspedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")), scroll_tableHuespedes, null);
         scroll_tableHuespedes.setVisible(true);
+
+        tbUsuarios = new JTable();
+        tbUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tbUsuarios.setFont(new Font("Roboto", Font.PLAIN, 16));
+        modeloUsuario = (DefaultTableModel) tbUsuarios.getModel();
+        modeloUsuario.addColumn("Id de Huesped");
+        modeloUsuario.addColumn("Nombre");
+        modeloUsuario.addColumn("Apellido");
+        modeloUsuario.addColumn("Usuario");
+        modeloUsuario.addColumn("Contraseña");
+        JScrollPane scroll_tableUsuarios = new JScrollPane(tbUsuarios);
+        panel.addTab("Usuarios", new ImageIcon(Busqueda.class.getResource("/imagenes/usuarios2.png")), scroll_tableUsuarios, null);
+        scroll_tableUsuarios.setVisible(true);
 
         JLabel lblNewLabel_2 = new JLabel("");
         lblNewLabel_2.setIcon(new ImageIcon(Busqueda.class.getResource("/imagenes/Ha-100px.png")));
@@ -211,6 +239,9 @@ public class Busqueda extends JFrame {
         btnbuscar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                mostrarTablaReservas();
+                mostrarTablaHuespedes();
+                mostrarTablaUsuarios();
 
             }
         });
@@ -267,5 +298,74 @@ public class Busqueda extends JFrame {
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
+    }
+
+    private List<Reserva> listarReserva(){
+        return this.reservaController.listar();
+    }
+
+    private List<Huesped> listarHuesped(){
+        return this.huespedController.listar();
+    }
+
+    private List<Usuario> listarUsuario(){
+        return this.usuarioController.listar();
+    }
+
+    private void mostrarTablaReservas(){
+        modelo.setRowCount(0);
+        List<Reserva> reservas = listarReserva();
+        try {
+            for (Reserva reserva : reservas) {
+                modelo.addRow(new Object[]{
+                        reserva.getId(),
+                        reserva.getFechaentrada(),
+                        reserva.getFechasalida(),
+                        reserva.getValor(),
+                        reserva.getFormapago()
+                });
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    private void mostrarTablaHuespedes(){
+        modeloHuesped.setRowCount(0);
+        List<Huesped> huespedes = listarHuesped();
+        try {
+            for (Huesped huesped : huespedes) {
+                modeloHuesped.addRow(new Object[]{
+                        huesped.getId(),
+                        huesped.getNombre(),
+                        huesped.getApellido(),
+                        huesped.getFechanacimiento(),
+                        huesped.getNacionalidad(),
+                        huesped.getTelefono(),
+                        huesped.getIdReserva()
+                });
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+
+    }
+
+    private void mostrarTablaUsuarios(){
+        modeloUsuario.setRowCount(0);
+        List<Usuario> usuarios = listarUsuario();
+        try {
+            for (Usuario usuario : usuarios) {
+                modeloUsuario.addRow(new Object[]{
+                        usuario.getId(),
+                        usuario.getNombre(),
+                        usuario.getApellido(),
+                        usuario.getUsuario(),
+                        usuario.getContrasena()
+                });
+            }
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }
