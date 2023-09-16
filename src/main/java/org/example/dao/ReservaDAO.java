@@ -105,7 +105,8 @@ public class ReservaDAO {
 
     public int modificar(Integer id, Date fechaentrada, Date fechasalida, Integer valor, String formapago) {
         try {
-            final PreparedStatement statement = con.prepareStatement("UPDATE RESERVAS SET FECHAENTRADA = ?, FECHASALIDA = ?, VALOR = ?, FORMAPAGO = ? WHERE ID = ?");
+            final PreparedStatement statement = con.prepareStatement("UPDATE RESERVAS SET FECHAINGRESO = ?,"+
+                    " FECHASALIDA = ?, VALOR = ?, FORMADEPAGO = ? WHERE ID = ?");
 
             try (statement) {
                 statement.setDate(1, (java.sql.Date) fechaentrada);

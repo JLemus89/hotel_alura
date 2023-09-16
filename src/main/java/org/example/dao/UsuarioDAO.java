@@ -52,26 +52,26 @@ public class UsuarioDAO {
         return resultado;
     }
 
-    public List<Usuario> listar(String usr) {
+    public List<Usuario> listar(String usuario) {
         List<Usuario> resultado = new ArrayList<>();
 
         try {
             final PreparedStatement statement = con
                     .prepareStatement("SELECT * FROM USUARIOS WHERE USUARIO = ?");
             try (statement) {
-                statement.setString(1, usr);
+                statement.setString(1,usuario);
                 final ResultSet resultSet = statement.executeQuery();
 
                 try (resultSet) {
                     while (resultSet.next()) {
-                        var usuario = new Usuario(
+                        var usuario2 = new Usuario(
                                 resultSet.getInt("ID"),
                                 resultSet.getString("NOMBRE"),
                                 resultSet.getString("APELLIDO"),
                                 resultSet.getString("USUARIO"),
                                 resultSet.getString("CONTRASENA")
                         );
-                        resultado.add(usuario);
+                        resultado.add(usuario2);
                     }
                 }
             }
@@ -85,6 +85,8 @@ public class UsuarioDAO {
         }
         return resultado;
     }
+
+
 
     public int eliminar(Integer id) {
         try {
@@ -106,7 +108,7 @@ public class UsuarioDAO {
         }
     }
 
-    public int modificar(String nombre, String apellido, String usr, String contrasena, Integer id) {
+    public int modificar(Integer id, String nombre, String apellido, String usr, String contrasena) {
         try {
             final PreparedStatement statement = con.prepareStatement(
                     "UPDATE USUARIOS SET "

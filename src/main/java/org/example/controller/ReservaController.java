@@ -19,7 +19,7 @@ public class ReservaController {
             return reservaDAO.listar();
         }
 
-        public List<Reserva> listar(Integer idReserva) {
+        public List<Reserva> listar(int idReserva) {
             return this.reservaDAO.listar(idReserva);
         }
 

@@ -19,16 +19,16 @@ public class HuespedController {
         return huespedDAO.listar();
     }
 
-    public List<Huesped> listar(Integer id) {
-        return huespedDAO.listar(id);
+    public List<Huesped> listar(String apellido) {
+        return huespedDAO.listar(apellido);
     }
 
     public int eliminar(Integer id, Integer idReserva) {
         return huespedDAO.eliminar(id, idReserva);
     }
 
-    public int modificar(String nombre, String apellido, Date fechanacimiento, String nacionalidad, Integer telefono) {
-        return huespedDAO.modificar( nombre, apellido, fechanacimiento, nacionalidad, telefono);
+    public int modificar(Integer id, String nombre, String apellido, Date fechanacimiento, String nacionalidad, String telefono, Integer idReserva) {
+        return huespedDAO.modificar(id, nombre, apellido, fechanacimiento, nacionalidad, telefono, idReserva);
     }
 
     public void guardar(Huesped huesped, Integer idReserva) {

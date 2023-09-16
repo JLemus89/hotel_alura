@@ -23,7 +23,7 @@ public class UsuarioController implements ActionListener {
         String usuario = login.getTxtUsuario();
         String contrasena = login.getTxtContrasena();
 
-        List<Usuario> usuarios = listar(usuario);
+        List<Usuario> usuarios = listar();
     }
 
 
@@ -36,16 +36,17 @@ public class UsuarioController implements ActionListener {
         return usuarioDAO.listar();
     }
 
-    public List<Usuario> listar(String usr) {
-        return usuarioDAO.listar(usr);
+
+    public List<Usuario> listar(String usuario) {
+        return usuarioDAO.listar(usuario);
     }
 
     public int eliminar(Integer id) {
         return usuarioDAO.eliminar(id);
     }
 
-    public int modificar(String nombre, String apellido, String usuario, String contrasena, Integer id) {
-        return usuarioDAO.modificar(nombre, apellido, usuario, contrasena, id);
+    public int modificar(Integer id, String nombre, String apellido, String usuario, String contrasena) {
+        return usuarioDAO.modificar(id, nombre, apellido, usuario, contrasena);
     }
 
     public void guardar(Usuario usuario) {

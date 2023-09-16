@@ -53,14 +53,14 @@ public class HuespedDAO {
         return resultado;
     }
 
-    public List<Huesped> listar(Integer id) {
+    public List<Huesped> listar(String apellido) {
         List<Huesped> resultado = new ArrayList<>();
 
         try {
             final PreparedStatement statement = con
-                    .prepareStatement("SELECT * FROM HUESPEDES WHERE ID = ?");
+                    .prepareStatement("SELECT * FROM HUESPEDES WHERE APELLIDO = ?");
             try (statement) {
-                statement.setInt(1, id);
+                statement.setString(1, apellido);
                 final ResultSet resultSet = statement.executeQuery();
 
                 try (resultSet) {
@@ -108,16 +108,20 @@ public class HuespedDAO {
         }
     }
 
-    public int modificar(String nombre, String apellido, Date fechanacimiento, String nacionalidad, Integer telefono) {
+    public int modificar(Integer id, String nombre, String apellido, Date fechanacimiento, String nacionalidad, String telefono, Integer idReserva) {
         try {
-            final PreparedStatement statement = con.prepareStatement("UPDATE HUESPEDES SET NOMBRE = ?, APELLIDO = ?, FECHANACIMIENTO = ?, NACIONALIDAD = ?, TELEFONO = ?, IDRESERVA = ? WHERE ID = ?");
+            final PreparedStatement statement = con.prepareStatement("UPDATE HUESPEDES SET NOMBRE = ?," +
+                    " APELLIDO = ?, FECHADENACIMIENTO = ?, NACIONALIDAD = ?, TELEFONO = ?, IDRESERVA = ? WHERE ID = ?");
 
             try (statement) {
+
                 statement.setString(1, nombre);
                 statement.setString(2, apellido);
                 statement.setDate(3, (java.sql.Date) fechanacimiento);
                 statement.setString(4, nacionalidad);
-                statement.setInt(5, telefono);
+                statement.setString(5, telefono);
+                statement.setInt(6, idReserva);
+                statement.setInt(7, id);
                 return statement.executeUpdate();
             }
         } catch (SQLException e) {
